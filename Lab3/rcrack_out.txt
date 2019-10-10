@@ -1,0 +1,52 @@
+1 rainbow tables found
+memory available: 10738519244 bytes
+memory for rainbow chain traverse: 60800 bytes per hash, 912000 bytes for 15 hashes
+memory for rainbow table buffer: 2 x 9600016 bytes
+disk: ./md5_loweralpha-numeric#5-5_0_3800x600000_0.rt: 9600000 bytes read
+disk: finished reading all files
+plaintext of a92b66a9802704ca8616c4b092378272 is opmen
+plaintext of 81466b6bb4be5a48e2230be1338bcde6 is lou0g
+plaintext of 836626589007d7dd5304c8d22815fffc is di5gv
+plaintext of 1b31905c59f481958d2eb72158c27ac7 is egunb
+plaintext of 1b4baba3ae3be69857b323cf6b7fcd80 is sso55
+plaintext of 78c1b8edd1bc3ffc438432479289a9e1 is nized
+plaintext of 0d5b558d5f6744deaaf5b016c6c77a57 is tpoin
+plaintext of a8218c67a5b4e652e30a59372e07df59 is hed4e
+plaintext of a74edf83748e3c4fa5f31ec10bad79db is dsmto
+plaintext of ddaafa5d551a582bc924d09cc8d33ee5 is aseas
+plaintext of 6e313b70d12de950443527a33d802b76 is mlhdi
+plaintext of d4efdba5e9725e77c9b9051fa8136f0a is tthel
+plaintext of 644674d142ba2174a80889f833b32563 is owso9
+plaintext of de952f5454fb0ee79bca249f80e9fe8f is ofror
+plaintext of 96f6065d8f2dd1376eff88fba65d1d83 is cance
+
+statistics
+----------------------------------------------------------------
+plaintext found:                             15 of 15
+total time:                                  4.69 s
+time of chain traverse:                      2.98 s
+time of alarm check:                         1.65 s
+time of disk read:                           0.01 s
+hash & reduce calculation of chain traverse: 108243000
+hash & reduce calculation of alarm check:    41923193
+number of alarm:                             144643
+performance of chain traverse:               36.27 million/s
+performance of alarm check:                  25.45 million/s
+
+result
+----------------------------------------------------------------
+a92b66a9802704ca8616c4b092378272  opmen  hex:6f706d656e
+d4efdba5e9725e77c9b9051fa8136f0a  tthel  hex:747468656c
+96f6065d8f2dd1376eff88fba65d1d83  cance  hex:63616e6365
+78c1b8edd1bc3ffc438432479289a9e1  nized  hex:6e697a6564
+0d5b558d5f6744deaaf5b016c6c77a57  tpoin  hex:74706f696e
+ddaafa5d551a582bc924d09cc8d33ee5  aseas  hex:6173656173
+a74edf83748e3c4fa5f31ec10bad79db  dsmto  hex:64736d746f
+1b31905c59f481958d2eb72158c27ac7  egunb  hex:6567756e62
+6e313b70d12de950443527a33d802b76  mlhdi  hex:6d6c686469
+de952f5454fb0ee79bca249f80e9fe8f  ofror  hex:6f66726f72
+a8218c67a5b4e652e30a59372e07df59  hed4e  hex:6865643465
+836626589007d7dd5304c8d22815fffc  di5gv  hex:6469356776
+644674d142ba2174a80889f833b32563  owso9  hex:6f77736f39
+1b4baba3ae3be69857b323cf6b7fcd80  sso55  hex:73736f3535
+81466b6bb4be5a48e2230be1338bcde6  lou0g  hex:6c6f753067
