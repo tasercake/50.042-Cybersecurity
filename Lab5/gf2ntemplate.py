@@ -11,7 +11,7 @@ from itertools import zip_longest
 class Polynomial2:
     def __init__(self, coeffs=None):
         self.coeffs = [] or coeffs  # Polynomial defaults to 0
-        while self.coeffs[-1] == 0:
+        while self.coeffs and self.coeffs[-1] == 0:
             del self.coeffs[-1]  # Remove trailing zeros
         super(Polynomial2, self)
 
@@ -31,7 +31,16 @@ class Polynomial2:
         return sum([p for i, p in enumerate(partials) if self.coeffs[i]])
 
     def div(self, p2):
-        pass
+        quotient = self.__class__([])
+        remainder = self.__class__(self.coeffs)
+        degree = p2.degree
+        while remainder.degree >= degree:
+            coeffs = [0 for _ in range(remainder.degree - degree + 1)]
+            coeffs[-1] = 1
+            s = self.__class__(coeffs)
+            quotient = quotient + s
+            remainder = remainder - s.mul(p2)
+        return quotient, remainder
 
     def xor(self, p2):
         new_coeffs = [c1 ^ c2 for c1, c2 in zip_longest(self.coeffs, p2.coeffs, fillvalue=0)]
@@ -138,17 +147,17 @@ if __name__ == "__main__":
     print(f'modp = {modp}')
     p5 = p1.mul(p4, modp)
     print(f'p5 = p1 * p4 mod (modp) = {p5}')
-    assert False
 
     print('\nTest 3')
     print('======')
-    print('p6=x^12+x^7+x^2')
-    print('p7=x^8+x^4+x^3+x+1')
-    p6=Polynomial2([0,0,1,0,0,0,0,1,0,0,0,0,1])    
-    p7=Polynomial2([1,1,0,1,1,0,0,0,1])
-    p8q,p8r=p6.div(p7)
-    print('q for p6/p7=',p8q)
-    print('r for p6/p7=',p8r)
+    p6 = Polynomial2([0,0,1,0,0,0,0,1,0,0,0,0,1])    
+    p7 = Polynomial2([1,1,0,1,1,0,0,0,1])
+    print(f'p6={p6}')
+    print(f'p7={p7}')
+    p8q, p8r=p6.div(p7)
+    print(f'q for p6/p7 ={p8q}')
+    print(f'r for p6/p7 = {p8r}')
+    print(f'Division sanity check: ({p7})({p8q}) + {p8r} = {(p7 * p8q) + p8r}')
 
     ####
     print('\nTest 4')
