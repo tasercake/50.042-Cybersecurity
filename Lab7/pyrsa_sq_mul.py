@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+"""
+50.042 FCS Lab 7
+Year 2019
+
+Krishna Penukonda - 1001781
+"""
 from Crypto.PublicKey import RSA
 from base64 import b64encode, b64decode
 import random

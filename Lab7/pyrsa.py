@@ -1,3 +1,10 @@
+#!/usr/bin/env python3
+"""
+50.042 FCS Lab 7
+Year 2019
+
+Krishna Penukonda - 1001781
+"""
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 from base64 import b64decode, b64encode
@@ -62,6 +69,7 @@ if __name__ == "__main__":
 
 
         print("========== Signature Verification ==========")
+        print(f"Original:\n{message}\n")
         signature = sign_RSA("mykey.pem.priv", message)
         print(f"Signature:\n{signature}\n")
         verification = verify_sign("mykey.pem.pub", signature, message)
