@@ -17,6 +17,8 @@ import pyrsa_sq_mul
 
 
 if __name__ == "__main__":
-    with open("mykey.pem.pub", 'r') as key:
+    with open("mykey.pem.pub", "r") as key:
         alice_public = RSA.importKey(key.read())
-	print("")
+    with open("message.txt", "r") as message:
+        message = message.read().encode('utf8')
+    print(message)

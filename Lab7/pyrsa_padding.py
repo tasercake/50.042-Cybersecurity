@@ -12,7 +12,9 @@ from Crypto.Signature import PKCS1_PSS
 from Crypto.Hash import SHA256
 import argparse
 import sys
-from pyrsa_sq_mul import square_multiply, pack_bigint, unpack_bigint
+import pyrsa
+import pyrsa_sq_mul
+
 
 
 def generate_RSA(bits=1024):
@@ -54,23 +56,3 @@ def verify_sign(public_key_file, sign, message):
     hashed = SHA256.new(data=message).digest()
     unpacked = unpack_bigint(sign)
     return hashed == bytes(pack_bigint(square_multiply(unpacked, rsa.e, rsa.n)))
-
-
-if __name__ == "__main__":
-    print("==============================\nRSA PROTOCOL DEMO - NO PADDING\n==============================")
-    with open("message.txt", 'r') as message:
-        message = message.read().encode('utf8')
-
-        print("---------- Encryption & Decryption ----------")
-        print(f"Original:\n{message}\n")
-        encrypted = encrypt_RSA("mykey.pem.pub", message)
-        print(f"Encrypted:\n{encrypted}\n")
-        decrypted = decrypt_RSA("mykey.pem.priv", encrypted)
-        print(f"Decrypted:\n{decrypted}\n")
-
-        print("---------- Signature Verification ----------")
-        print(f"Original:\n{message}\n")
-        signature = sign_RSA("mykey.pem.priv", message)
-        print(f"Signature:\n{signature}\n")
-        verification = verify_sign("mykey.pem.pub", signature, message)
-        print(f"Signature verfied:\n{verification}\n")
