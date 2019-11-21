@@ -5,6 +5,7 @@ Year 2019
 
 Krishna Penukonda - 1001781
 """
+from random import randint
 from Crypto.PublicKey import RSA
 from base64 import b64encode, b64decode
 from Crypto.PublicKey import RSA
@@ -107,7 +108,6 @@ if __name__ == "__main__":
     print(f"Signature verfied:\n{verification}\n")
 
     print("==================================\nRSA ENCRYPTION ATTACK - NO PADDING\n==================================")
-    print("=========== RSA Encryption Attack ===========")
     message = 100
     multiplier = 2
     print(f"Chosen Integer:\n{message}\n")
@@ -121,3 +121,17 @@ if __name__ == "__main__":
     decrypted = decrypt_RSA(private_key_file, result)
     print(f"Decrypted:\n{unpack_bigint(decrypted)}\n")
 
+    print("==================================\nRSA SIGNATURE ATTACK - NO PADDING\n==================================")
+    signature = randint(0, 2 ** 1024 - 1)
+    print(f"Alice sends some message with (unhashed) Signature:\n{b64encode(pack_bigint(signature))}\n")
+    with open(public_key_file, "r") as key:
+        rsa = RSA.importKey(key.read())
+    x = square_multiply(signature, rsa.e, rsa.n)
+    print(f"Attacker computes a plausible message from Alice's Signature and Public Key:\n{b64encode(pack_bigint(x))}\n")
+    print(f"Sending computed message and Alice's Signature to Bob...")
+    x_prime = square_multiply(signature, rsa.e, rsa.n)
+    print(f"Bob computes the digest from Alice's Signature using Alice's Public Key:\n{b64encode(pack_bigint(x_prime))}\n")
+    print(f"Bob verifies the source of the message by comparing the computed digest to Alice's Signature:\n{x == x_prime}\n")
+
+    print("========================================================================================================================")
+    print("Note: This signature protocol attack only works if the signature is computed directly from the message (without hashing)")

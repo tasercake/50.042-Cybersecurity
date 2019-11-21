@@ -87,7 +87,6 @@ if __name__ == "__main__":
     print(f"Signature verfied:\n{verification}\n")
 
     print("============================\nPADDED RSA ENCRYPTION ATTACK\n============================")
-    print("=========== Padded RSA Encryption Attack ===========")
     message = 100
     multiplier = 2
     print(f"Chosen Integer:\n{message}\n")
