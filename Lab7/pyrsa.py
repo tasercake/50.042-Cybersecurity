@@ -98,5 +98,7 @@ if __name__ == "__main__":
     print(f"Encrypted Multiplier:\n{encrypted_multiplier}\n")
     result = multiply_encrypted(public_key_file, encrypted, encrypted_multiplier)
     print(f"Multiplication Result:\n{result}\n")
-    decrypted = decrypt_RSA(private_key_file, result)
-    print(f"Decrypted:\n{unpack_bigint(decrypted)}\n")
+    try:
+        decrypted = decrypt_RSA(private_key_file, result)
+    except ValueError as e:
+        print(f"Decryption is invalid: '{e}'")
