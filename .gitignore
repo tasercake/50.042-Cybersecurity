@@ -1,3 +1,11 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Lab Stuff
 Lab3/rainbowcrack
 Lab3/rockyou.txt
 Lab3/hashcat/
+Lab7/*.pem.priv
+Lab7/*.pem.pub
